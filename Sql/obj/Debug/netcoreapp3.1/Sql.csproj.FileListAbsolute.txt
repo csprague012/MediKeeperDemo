@@ -1,0 +1,9 @@
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\bin\Debug\netcoreapp3.1\Sql.deps.json
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\bin\Debug\netcoreapp3.1\Sql.dll
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\obj\Debug\netcoreapp3.1\Sql.AssemblyInfoInputs.cache
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\obj\Debug\netcoreapp3.1\Sql.AssemblyInfo.cs
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\obj\Debug\netcoreapp3.1\Sql.csprojAssemblyReference.cache
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\bin\Debug\netcoreapp3.1\Sql.pdb
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\obj\Debug\netcoreapp3.1\Sql.csproj.CoreCompileInputs.cache
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\obj\Debug\netcoreapp3.1\Sql.dll
+C:\Users\Support\source\repos\MediKeeperDemo\Sql\obj\Debug\netcoreapp3.1\Sql.pdb
