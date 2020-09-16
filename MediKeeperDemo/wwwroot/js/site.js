@@ -31,7 +31,7 @@ populateItems();
 
 addRow = function () {    
     $("#newRow").remove();
-    $("#itemContainer tr:last").after('<tr id="newRow"><td><button class="btn btn-sm btn-info" onclick="saveRow()"><i class="fa fa-save"></i></button></td><td></td><td><input id="newRowName"></input></td><td><input id="newRowCost"></input></td></tr>');
+    $("#itemContainer tr:last").after('<tr id="newRow"><td><button class="btn btn-sm btn-info" onclick="saveRow()"><i class="fa fa-save"></i></button></td><td></td><td><input id="newRowName"></input></td><td><input id="newRowCost" type="number"></input></td></tr>');
 }
 editRow = function (index) {
     $("#row" + index).hide();
@@ -39,7 +39,7 @@ editRow = function (index) {
     var rowName = items[index].name;
     var rowCost = items[index].cost;
     var rowId = items[index].id;
-    $("#row" + index).after('<tr id="rowEdit' + index +'"><td><button class="btn btn-sm btn-info" onclick="saveRow(' + index +')"><i class="fa fa-save"></i></button><button class="btn btn-sm btn-danger" onclick="deleteRow(' + index + ')"><i class="fa fa-trash"></i></button></td><td>' + rowId + '</td><td><input id="newRowName" value="' + rowName + '"></input></td><td><input id="newRowCost" value="' + rowCost + '"></input></td></tr>');
+    $("#row" + index).after('<tr id="rowEdit' + index + '"><td><button class="btn btn-sm btn-info" onclick="saveRow(' + index + ')"><i class="fa fa-save"></i></button><button class="btn btn-sm btn-danger" onclick="deleteRow(' + index + ')"><i class="fa fa-trash"></i></button></td><td>' + rowId + '</td><td><input id="newRowName" value="' + rowName + '"></input></td><td><input id="newRowCost" type="number" value="' + rowCost + '"></input></td></tr>');
 }
 saveRow = function (index) {
     var type = "";
