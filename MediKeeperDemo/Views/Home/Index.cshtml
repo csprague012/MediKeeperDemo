@@ -2,13 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <table class="table table-striped" id="itemContainer">
-        <tr>
-            <td>+/-</td>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Cost</td>
-        </tr>
+<div>
+    <table class="table table-striped" style="table-layout: fixed;">
+        <thead>
+            <tr>
+                <th width="15%"><button class="btn btn-condenced" onclick="addRow()"><i class="fa fa-plus"></i></button></th>
+                <th wdith="10%">Id</th>
+                <th width="55%">Name</th>
+                <th width="25%">Cost</th>
+            </tr>
+        </thead>
+        <tbody id="itemContainer">
+        </tbody>
     </table>
 </div>

@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-var itemArray = [1, 2, 3, 4];
+var items = {};
 function populateItems() {    
     $.ajax({
         method: "POST",
@@ -10,10 +10,12 @@ function populateItems() {
         dataType: "json",
         timeout: 100000,
         success: function (data) {
-            console.info(data.message);
-            var items = data.items;
+            console.info(data.message);            
+            items = data.items;
+            $("#itemContainer").empty();
+            $("#itemContainer").append("<tr hidden></tr>");
             for (var i = 0; i < items.length; i++) {
-                $("#itemContainer tr:last").after('<tr><td></td><td>' + items[i].id + '</td><td>' + items[i].name + '</td><td>' + items[i].cost + '</td></tr>');
+                $("#itemContainer tr:last").after('<tr id="row' + i + '"><td><button class="btn btn-condenced" onclick="editRow(' + i + ')"><i class="fa fa-pencil"></i></button</td><td>' + items[i].id + '</td><td>' + items[i].name + '</td><td>' + items[i].cost + '</td></tr>');
             }
         },
         error: function (e) {
@@ -26,3 +28,95 @@ function populateItems() {
     
 }
 populateItems();
+
+addRow = function () {    
+    $("#newRow").remove();
+    $("#itemContainer tr:last").after('<tr id="newRow"><td><button class="btn btn-condenced" onclick="saveRow()"><i class="fa fa-save"></i></button></td><td></td><td><input id="newRowName"></input></td><td><input id="newRowCost"></input></td></tr>');
+}
+editRow = function (index) {
+    $("#row" + index).hide();
+    $("#newRow").remove();
+    var rowName = items[index].name;
+    var rowCost = items[index].cost;
+    var rowId = items[index].id;
+    $("#row" + index).after('<tr id="rowEdit' + index +'"><td><button class="btn btn-condenced" onclick="saveRow(' + index +')"><i class="fa fa-save"></i></button><button class="btn btn-condenced" onclick="deleteRow(' + index + ')"><i class="fa fa-trash"></i></button></td><td>' + rowId + '</td><td><input id="newRowName" value="' + rowName + '"></input></td><td><input id="newRowCost" value="' + rowCost + '"></input></td></tr>');
+}
+saveRow = function (index) {
+    var type = "";
+    var id = null;
+    var name = $("#newRowName").val();
+    var cost = $("#newRowCost").val();
+    
+    if (index != null || index != undefined) {
+        $("#rowEdit" + index).remove();
+        id = items[index].id;
+        type = "update";
+    }
+    else {
+        $("#newRow").remove();
+        type = "add";
+    }    
+    var payload = { id: id, name: name, cost: cost };
+    console.log(name + " - " + cost);    
+    switch (type) {
+        case "update":
+            $.ajax({
+                method: "POST",
+                url: "/Controllers/HomeController/Update",
+                dataType: "json",
+                data: payload,
+                timeout: 100000,
+                success: function (data) {
+                    console.info(data);
+                    populateItems();
+                },
+                error: function (e) {
+                    console.info("Error");
+                },
+                done: function (e) {
+                    console.info("DONE");
+                }
+            });
+            break;            
+        case "add":
+            $.ajax({
+                method: "POST",
+                url: "/Controllers/HomeController/Add",
+                dataType: "json",
+                data: payload,
+                timeout: 100000,
+                success: function (data) {
+                    console.info(data);
+                    populateItems();
+                },
+                error: function (e) {
+                    console.info("Error");
+                },
+                done: function (e) {
+                    console.info("DONE");
+                }
+            });
+            break;
+    }
+    
+}
+deleteRow = function (index) {
+    var payload = items[index];
+    $.ajax({
+        method: "POST",
+        url: "/Controllers/HomeController/Delete",
+        dataType: "json",
+        data: payload,
+        timeout: 100000,
+        success: function (data) {
+            console.info(data.message);
+            populateItems();
+        },
+        error: function (e) {
+            console.info("Error");
+        },
+        done: function (e) {
+            console.info("DONE");
+        }
+    });
+}

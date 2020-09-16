@@ -47,6 +47,6 @@ C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp3.1\Sql.dll
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp3.1\Sql.pdb
+C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp3.1\MediKeeperDemo.dll.config
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\obj\Debug\netcoreapp3.1\MediKeeperDemo.csproj.CoreCompileInputs.cache
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\obj\Debug\netcoreapp3.1\MediKeeperDemo.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp3.1\MediKeeperDemo.dll.config

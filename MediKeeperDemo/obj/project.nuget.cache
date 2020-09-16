@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "luy100/sYLIgmqsJ/jCoW9bQwKcPzQLbyhnT7nwTGOU5LAkZ3hS2H5Hqe7E2J8lF3CLthrBvdfBCJb9euPVYKg==",
+  "dgSpecHash": "ui7fZu4NKqQxR3nZ2HkG+ss2HsorS4JYuOOzr7BCQsWxySyPGUbREERy3iv6HyxDlFbCQwHWC8t4MtydcSD+ZA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Support\\source\\repos\\MediKeeperDemo\\MediKeeperDemo\\MediKeeperDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Support\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
+    "C:\\Users\\Support\\.nuget\\packages\\fontawesome\\4.7.0\\fontawesome.4.7.0.nupkg.sha512",
     "C:\\Users\\Support\\.nuget\\packages\\jquery\\3.5.1\\jquery.3.5.1.nupkg.sha512",
     "C:\\Users\\Support\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Support\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

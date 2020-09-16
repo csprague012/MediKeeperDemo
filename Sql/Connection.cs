@@ -21,7 +21,14 @@ namespace Sql
         public static void SaveItem(Item item) {
             using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
             {
-                conn.Execute("INSERT INTO ITEMS (name, cost) VALUES (@name, @cost) WHERE id=@id", item);
+                conn.Execute("INSERT INTO ITEMS (name, cost) VALUES (@name, @cost)", item);
+            }
+        }
+        public static void UpdateItem(Item item)
+        {
+            using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
+            {
+                conn.Execute("UPDATE ITEMS SET name=@name, cost=@cost WHERE id=@id", item);
             }
         }
         public static void DeleteItem(Item item)
@@ -29,6 +36,12 @@ namespace Sql
             using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
             {
                 conn.Execute("DELETE FROM ITEMS WHERE id=@id", item);
+            }
+        }
+        public static void CreateTable() {
+            using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
+            {
+                conn.Execute("CREATE TABLE \"ITEMS\"(\"id\" INTEGER NOT NULL UNIQUE, \"name\" TEXT, \"cost\" TEXT, PRIMARY KEY(\"id\" AUTOINCREMENT)); ");
             }
         }
         private static string LoadConnectionString(string id = "Default") {

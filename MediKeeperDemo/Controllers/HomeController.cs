@@ -47,8 +47,27 @@ namespace MediKeeperDemo.Controllers
             }
             catch (Exception e) {
                 res.message = e.Message;
+                if (string.Compare(res.message, "SQL logic error↵no such table: ITEMS", StringComparison.OrdinalIgnoreCase) > 0)
+                {
+                    Connection.CreateTable();
+                }
             }
             return new JsonResult(res);
+        }
+        [HttpPost]
+        [Route("Controllers/HomeController/Update")]
+        public JsonResult Update(Item item)
+        {
+            string message = "";
+            try
+            {
+                Connection.UpdateItem(item);
+                message = "Success";
+            }
+            catch (Exception e) {
+                message = e.Message;                
+            }
+            return new JsonResult(message);
         }
         [HttpPost]
         [Route("Controllers/HomeController/Add")]
@@ -60,7 +79,8 @@ namespace MediKeeperDemo.Controllers
                 Connection.SaveItem(item);
                 message = "Success";
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 message = e.Message;
             }
             return new JsonResult(message);

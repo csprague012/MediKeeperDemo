@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "MediKeeperDemo/1.0.0": {
         "dependencies": {
+          "FontAwesome": "4.7.0",
           "Sql": "1.0.0",
           "System.Data.SQLite.Core": "1.0.113.1",
           "jQuery": "3.5.1",
@@ -331,6 +332,7 @@
           "lib/netstandard2.0/Dapper.dll": {}
         }
       },
+      "FontAwesome/4.7.0": {},
       "jQuery/3.5.1": {},
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.Win32.SystemEvents/4.7.0": {
@@ -2166,6 +2168,13 @@
       "sha512": "sha512-/xAgd8BO8EDnJ0sURWEV8LptHHvTKxoYiT63YUF2U/yWE2VyUCqR2jcrtEyNngT9Kjzppecz95UKiBla3PnR7g==",
       "path": "dapper/2.0.35",
       "hashPath": "dapper.2.0.35.nupkg.sha512"
+    },
+    "FontAwesome/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
+      "path": "fontawesome/4.7.0",
+      "hashPath": "fontawesome.4.7.0.nupkg.sha512"
     },
     "jQuery/3.5.1": {
       "type": "package",
