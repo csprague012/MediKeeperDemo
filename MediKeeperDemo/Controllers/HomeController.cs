@@ -47,7 +47,7 @@ namespace MediKeeperDemo.Controllers
             }
             catch (Exception e) {
                 res.message = e.Message;
-                if (string.Compare(res.message, "SQL logic error↵no such table: ITEMS", StringComparison.OrdinalIgnoreCase) > 0)
+                if (res.message.Contains("no such table: ITEMS"))
                 {
                     Connection.CreateTable();
                 }
