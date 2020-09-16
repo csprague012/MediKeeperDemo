@@ -99,6 +99,38 @@ namespace MediKeeperDemo.Controllers
                 message = e.Message;
             }
             return new JsonResult(message);
-        }        
+        }
+        [HttpPost]
+        [Route("Controllers/HomeController/GetMaxPrice")]
+        public JsonResult GetMaxPrice()
+        {
+            ItemResponse itemResponse = new ItemResponse();
+            try
+            {
+                itemResponse.items = Connection.GetMaxPrice();
+                itemResponse.message = "Success";
+            }
+            catch (Exception e)
+            {
+                itemResponse.message = e.Message;
+            }
+            return new JsonResult(itemResponse);
+        }
+        [HttpPost]
+        [Route("Controllers/HomeController/GetMaxPriceByName")]
+        public JsonResult GetMaxPriceByName(Item item)
+        {
+            ItemResponse itemResponse = new ItemResponse();
+            try
+            {
+                itemResponse.items = Connection.GetMaxPrice(item);
+                itemResponse.message = "Success";
+            }
+            catch (Exception e)
+            {
+                itemResponse.message = e.Message;
+            }
+            return new JsonResult(itemResponse);
+        }
     }
 }

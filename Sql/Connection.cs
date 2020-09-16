@@ -47,5 +47,23 @@ namespace Sql
         private static string LoadConnectionString(string id = "Default") {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
+
+        public static List<Item> GetMaxPrice()
+        {
+            using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var items = conn.Query<Item>("SELECT name, MAX(cost) as cost FROM ITEMS GROUP BY name", new DynamicParameters());
+                return items.ToList();
+            }
+        }
+
+        public static List<Item> GetMaxPrice(Item item)
+        {
+            using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var items = conn.Query<Item>("SELECT name, MAX(cost) as cost FROM ITEMS WHERE name=@name GROUP BY name", item);
+                return items.ToList();
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@
     <table class="table table-striped" style="table-layout: fixed;">
         <thead>
             <tr>
-                <th width="15%"><button class="btn btn-condenced" onclick="addRow()"><i class="fa fa-plus"></i></button></th>
+                <th width="15%"><button class="btn btn-sm btn-success" onclick="addRow()"><i class="fa fa-plus"></i></button></th>
                 <th wdith="10%">Id</th>
                 <th width="55%">Name</th>
                 <th width="25%">Cost</th>
@@ -15,4 +15,9 @@
         <tbody id="itemContainer">
         </tbody>
     </table>
+    <div>
+        <button class="btn btn-primary" onclick="loadMaxVals()"><i class="fa fa-dollar"></i> Max Cost</button>
+        <input id="itemName" placeholder="Item Name"/>
+    </div>
+    <div id="MaxValContainer"></div>
 </div>
