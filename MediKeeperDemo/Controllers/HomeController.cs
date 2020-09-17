@@ -26,17 +26,12 @@ namespace MediKeeperDemo.Controllers
             return View();
         }
 
-        public IActionResult Import()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        [HttpPost]
+        [HttpGet]
         [Route("Controllers/HomeController/Init")]
         public JsonResult Init() {
             ItemResponse res = new ItemResponse();            
