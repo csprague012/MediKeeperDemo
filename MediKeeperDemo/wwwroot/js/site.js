@@ -2,7 +2,7 @@
     var items = {};
     function populateItems() {
         $.ajax({
-            method: "POST",
+            method: "GET",
             url: "/Controllers/HomeController/Init",
             dataType: "json",
             timeout: 100000,
@@ -144,7 +144,7 @@
         }
         else {
             $.ajax({
-                method: "POST",
+                method: "GET",
                 url: "/Controllers/HomeController/GetMaxPrice",
                 dataType: "json",
                 timeout: 100000,

@@ -100,7 +100,7 @@ namespace MediKeeperDemo.Controllers
             }
             return new JsonResult(message);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("Controllers/HomeController/GetMaxPrice")]
         public JsonResult GetMaxPrice()
         {
