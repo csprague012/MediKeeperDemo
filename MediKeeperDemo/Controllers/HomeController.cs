@@ -49,7 +49,7 @@ namespace MediKeeperDemo.Controllers
             }
             return new JsonResult(res);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("Controllers/HomeController/Update")]
         public JsonResult Update(Item item)
         {
@@ -64,7 +64,7 @@ namespace MediKeeperDemo.Controllers
             }
             return new JsonResult(message);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("Controllers/HomeController/Add")]
         public JsonResult Add(Item item)
         {
@@ -80,7 +80,7 @@ namespace MediKeeperDemo.Controllers
             }
             return new JsonResult(message);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("Controllers/HomeController/Delete")]
         public JsonResult Delete(Item item)
         {
@@ -111,7 +111,7 @@ namespace MediKeeperDemo.Controllers
             }
             return new JsonResult(itemResponse);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("Controllers/HomeController/GetMaxPriceByName")]
         public JsonResult GetMaxPriceByName(Item item)
         {

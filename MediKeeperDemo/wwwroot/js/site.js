@@ -58,7 +58,7 @@
         switch (type) {
             case "update":
                 $.ajax({
-                    method: "POST",
+                    method: "GET",
                     url: "/Controllers/HomeController/Update",
                     dataType: "json",
                     data: payload,
@@ -77,7 +77,7 @@
                 break;
             case "add":
                 $.ajax({
-                    method: "POST",
+                    method: "GET",
                     url: "/Controllers/HomeController/Add",
                     dataType: "json",
                     data: payload,
@@ -100,7 +100,7 @@
     deleteRow = function (index) {
         var payload = items[index];
         $.ajax({
-            method: "POST",
+            method: "GET",
             url: "/Controllers/HomeController/Delete",
             dataType: "json",
             data: payload,
@@ -123,7 +123,7 @@
         var payload = { name: name };
         if (name.length > 0) {
             $.ajax({
-                method: "POST",
+                method: "GET",
                 url: "/Controllers/HomeController/GetMaxPriceByName",
                 dataType: "json",
                 data: payload,
