@@ -26,7 +26,7 @@ namespace MediKeeperDemo.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Import()
         {
             return View();
         }
@@ -131,6 +131,42 @@ namespace MediKeeperDemo.Controllers
                 itemResponse.message = e.Message;
             }
             return new JsonResult(itemResponse);
+        }
+        [HttpPost]
+        [Route("Controllers/HomeController/UploadCSV")]
+        public JsonResult UploadCSV(UploadRequest upload)
+        {
+            ItemResponse res = new ItemResponse();
+            List<Item> toUpload = new List<Item>();
+            string[] dataRows = upload.data.Split("\n");
+            for(int i =1; i<dataRows.Length; i++) {
+                string[] values = dataRows[i].Split(",");
+                for(int j =1; j<values.Length; j+=2) {
+                    Item newItem = new Item {
+                        name = values[j],
+                        cost = Convert.ToDecimal(values[j+1])
+                    };
+                    toUpload.Add(newItem);
+                    break;
+                }                
+            }
+            res.items = toUpload;
+            try
+            {
+                foreach(var item in toUpload) {
+                    Connection.SaveItem(item);
+                }
+                res.message = "Success";
+            }
+            catch (Exception e)
+            {
+                res.message = e.Message;
+                if (res.message.Contains("no such table: ITEMS"))
+                {
+                    Connection.CreateTable();
+                }
+            }
+            return new JsonResult(res);
         }
     }
 }

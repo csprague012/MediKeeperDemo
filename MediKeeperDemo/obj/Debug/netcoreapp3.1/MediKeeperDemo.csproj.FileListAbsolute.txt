@@ -50,3 +50,4 @@ C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\bin\Debug\netcoreapp3.1\MediKeeperDemo.dll.config
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\obj\Debug\netcoreapp3.1\MediKeeperDemo.csproj.CoreCompileInputs.cache
 C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\obj\Debug\netcoreapp3.1\MediKeeperDemo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Support\source\repos\MediKeeperDemo\MediKeeperDemo\obj\Debug\netcoreapp3.1\Razor\Views\Home\Import.cshtml.g.cs
