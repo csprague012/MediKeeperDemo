@@ -29,7 +29,7 @@ namespace MediKeeperDemo
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("https://inv-app-reactjs.herokuapp.com/").AllowAnyHeader().AllowAnyMethod();
+                                      builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                                   });
             });
             services.AddControllersWithViews();
@@ -61,7 +61,8 @@ namespace MediKeeperDemo
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}")
+                    .RequireCors(MyAllowSpecificOrigins);
             });
         }
     }
