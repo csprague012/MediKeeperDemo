@@ -49,6 +49,14 @@
               "target": "Package",
               "version": "[4.7.0, )"
             },
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "System.Data.SQLite.Core": {
               "target": "Package",
               "version": "[1.0.113.1, )"

@@ -9,9 +9,11 @@ using MediKeeperDemo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Connections;
 using Sql;
+using System.Web.Http.Cors;
 
 namespace MediKeeperDemo.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
