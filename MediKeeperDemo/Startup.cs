@@ -13,6 +13,7 @@ namespace MediKeeperDemo
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;            
@@ -23,7 +24,16 @@ namespace MediKeeperDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("https://inv-app-reactjs.herokuapp.com/").AllowAnyHeader().AllowAnyMethod();
+                                  });
+            });
             services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +53,7 @@ namespace MediKeeperDemo
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
