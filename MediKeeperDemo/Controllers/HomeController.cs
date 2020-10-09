@@ -124,7 +124,11 @@ namespace MediKeeperDemo.Controllers
             ItemResponse itemResponse = new ItemResponse();
             try
             {
-                itemResponse.items = Connection.GetMaxPrice(item);
+                var items = Connection.LoadItems();
+                itemResponse.items = items
+                    .GroupBy(t => t.name == item.name)
+                    .Select(g => g.OrderByDescending(t => t.cost).First())
+                    .ToList();
                 itemResponse.message = "Success";
             }
             catch (Exception e)
@@ -142,14 +146,12 @@ namespace MediKeeperDemo.Controllers
             string[] dataRows = upload.data.Split("\n");
             for(int i =1; i<dataRows.Length; i++) {
                 string[] values = dataRows[i].Split(",");
-                for(int j =1; j<values.Length; j+=2) {
-                    Item newItem = new Item {
-                        name = values[j],
-                        cost = Convert.ToDecimal(values[j+1])
-                    };
-                    toUpload.Add(newItem);
-                    break;
-                }                
+                Item newItem = new Item
+                {
+                    name = values[1],
+                    cost = Convert.ToDecimal(values[2])
+                };
+                toUpload.Add(newItem);
             }
             res.items = toUpload;
             try
