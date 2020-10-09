@@ -126,7 +126,7 @@ namespace MediKeeperDemo.Controllers
             {
                 var items = Connection.LoadItems();
                 itemResponse.items = items
-                    .GroupBy(t => t.name == item.name)
+                    .GroupBy(t => t.name.Equals(item.name, StringComparison.OrdinalIgnoreCase))
                     .Select(g => g.OrderByDescending(t => t.cost).First())
                     .ToList();
                 itemResponse.message = "Success";
