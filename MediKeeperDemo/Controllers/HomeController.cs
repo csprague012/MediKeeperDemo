@@ -124,9 +124,9 @@ namespace MediKeeperDemo.Controllers
             ItemResponse itemResponse = new ItemResponse();
             try
             {
-                var items = Connection.GetMaxPrice(item);
+                var items = Connection.GetItems(item);
                 itemResponse.items = items
-                    .GroupBy(t => t.name.Equals(item.name, StringComparison.OrdinalIgnoreCase))
+                    .GroupBy(t => t.name)
                     .Select(g => g.OrderByDescending(t => t.cost).First())
                     .ToList();
                 itemResponse.message = "Success";

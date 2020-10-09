@@ -48,11 +48,11 @@ namespace Sql
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
         
-        public static List<Item> GetMaxPrice(Item item)
+        public static List<Item> GetItems(Item item)
         {
             using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
             {
-                var items = conn.Query<Item>("SELECT id, name, cost FROM ITEMS WHERE name=@name", item);
+                var items = conn.Query<Item>("SELECT id, name, cost FROM ITEMS WHERE LOWER(name)=LOWER(@name)", item);
                 return items.ToList();
             }
         }
