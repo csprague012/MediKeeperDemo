@@ -52,7 +52,7 @@ namespace Sql
         {
             using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
             {
-                var items = conn.Query<Item>("SELECT id, name, MAX(cost) as cost FROM ITEMS WHERE name=@name GROUP BY name", item);
+                var items = conn.Query<Item>("SELECT id, name, cost FROM ITEMS WHERE name=@name", item);
                 return items.ToList();
             }
         }
