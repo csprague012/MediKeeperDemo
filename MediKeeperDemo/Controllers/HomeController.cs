@@ -59,6 +59,7 @@ namespace MediKeeperDemo.Controllers
                     foreach (Item item in _defaultItems) {
                         Connection.SaveItem(item);
                     }
+                    res.items.AddRange(Connection.LoadItems());
                 }
             }
             return new JsonResult(res);
