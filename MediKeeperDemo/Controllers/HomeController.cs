@@ -33,6 +33,15 @@ namespace MediKeeperDemo.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        List<Item> _defaultItems = new List<Item> { 
+            new Item { name = "ITEM 1", cost = 100},
+            new Item { name = "ITEM 2", cost = 200},
+            new Item { name = "ITEM 1", cost = 250},
+            new Item { name = "ITEM 3", cost = 300},
+            new Item { name = "ITEM 4", cost = 50},
+            new Item { name = "ITEM 4", cost = 40},
+            new Item { name = "ITEM 2", cost = 200},
+        };
         [HttpGet]
         [Route("Controllers/HomeController/Init")]
         public JsonResult Init() {
@@ -47,6 +56,9 @@ namespace MediKeeperDemo.Controllers
                 if (res.message.Contains("no such table: ITEMS"))
                 {
                     Connection.CreateTable();
+                    foreach (Item item in _defaultItems) {
+                        Connection.SaveItem(item);
+                    }
                 }
             }
             return new JsonResult(res);
